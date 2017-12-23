@@ -1,0 +1,30 @@
+##MySQL
+db:
+  image: mysql:5.5
+  restart: always
+  ports:
+    - "3306:3306"
+  environment:
+    MYSQL_ROOT_PASSWORD: rootpassword
+    MYSQL_DATABASE: myproject
+    MYSQL_USER: user
+    MYSQL_PASSWORD: pass
+##Server Nginx
+web:
+  image: nginx:latest
+  restart: always
+  ports:
+    - "8080:80"
+  volumes:
+    - ./code:/code
+    - ./site.conf:/etc/nginx/conf.d/default.conf
+  links:
+    - php:php
+##PHP
+php:
+  build: ./php
+  restart: always
+  volumes:
+    - ./code:/code
+  links:
+    - db:db
