@@ -1,7 +1,4 @@
-
-## <h1>Docker project - IPSSI</h1>
-
-## <h2>Instructions</h2> 
+<h1>Ready to use for local projects</h1>
 
 <ul>
 <li>Put these files into your project root and put your files into <code>code</code> folder.</li>
